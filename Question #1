@@ -1,0 +1,43 @@
+#Find the greatest common divisible of 2 numbers
+#eg: numbers: 12 & 20
+#Divisibles of 12 = {1, 2, 3, 4, 6, 12}
+#Divisibles of 20 = {1, 2, 4, 5, 10, 20}
+#Common Divisibles: {1, 2, 4}
+#The greatest commom divisible of 12 & 20 is: 4
+
+def findDivisible(num):
+    j = 0
+    numlist =set()
+    for i in range(1,num+1):
+        if num % i == 0:
+            numlist.add(i)
+            j+=1
+            
+    return numlist
+
+def findCommon(numlist1, numlist2):
+    n1=len(numlist1)
+    n2=len(numlist2)
+    comn = set()
+    for i in range(0,n1):
+        if numlist1[i] in numlist2:
+                comn.add(numlist1[i])
+                
+    print("Common Divisibles:",comn)
+    big= max(comn)          
+    return big
+        
+
+lstnum1=[]
+lstnum2=[]
+num1 = int(input("Enter 1st number:"))
+num2 = int(input("Enter 2nd number:"))
+lstnum1 = findDivisible(num1)
+lstnum2 = findDivisible(num2)
+print("Divisibles of",num1,"=",lstnum1)
+print("Divisibles of",num2,"=",lstnum2)
+lstnum1=list(lstnum1)
+lstnum2=list(lstnum2)
+comm = findCommon(lstnum1,lstnum2)
+print("The greatest commom divisible of",num1,"&",num2,"is:",comm)
+
